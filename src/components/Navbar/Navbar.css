@@ -52,21 +52,27 @@
   height: 2px;
   background: var(--color-text-on-dark);
   transition: transform var(--duration-fast) var(--ease-standard),
-    opacity var(--duration-fast) var(--ease-standard);
+    background-color var(--duration-fast) var(--ease-standard),
+    top var(--duration-fast) var(--ease-standard);
+}
+
+.navbar__burger {
+  position: relative;
 }
 
 .navbar__burger::before,
 .navbar__burger::after {
   content: "";
-  position: relative;
+  position: absolute;
+  left: 0;
 }
 
 .navbar__burger::before {
-  top: 7px;
+  top: -7px;
 }
 
 .navbar__burger::after {
-  top: 3px;
+  top: 7px;
 }
 
 .navbar__burger--open {
@@ -79,7 +85,7 @@
 }
 
 .navbar__burger--open::after {
-  top: -2px;
+  top: 0;
   transform: rotate(-45deg);
 }
 
