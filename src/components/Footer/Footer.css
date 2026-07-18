@@ -81,5 +81,20 @@
 @media (max-width: 540px) {
   .site-footer__inner {
     grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .site-footer__brand {
+    justify-content: center;
+  }
+
+  .site-footer__nav ul,
+  .site-footer__social,
+  .site-footer__contact {
+    align-items: center;
+  }
+
+  .site-footer__legal {
+    text-align: center;
   }
 }

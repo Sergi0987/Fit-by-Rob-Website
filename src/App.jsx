@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import { initScrollHighlight } from "./utils/scrollHighlight";
 import Navbar from "./components/Navbar/Navbar";
 import Hero from "./components/Hero/Hero";
 import Stats from "./components/Stats/Stats";
@@ -28,6 +29,14 @@ export default function App() {
 
     elements.forEach((element) => observer.observe(element));
     return () => observer.disconnect();
+  }, []);
+
+  // On touch devices, highlight whichever card is centered in the
+  // viewport as the user scrolls, since :hover doesn't apply there.
+  useEffect(() => {
+    return initScrollHighlight(
+      ".service-card, .testimonial-card, .transformation-card, .benefit-item"
+    );
   }, []);
 
   return (

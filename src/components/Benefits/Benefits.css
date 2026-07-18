@@ -30,7 +30,8 @@
     border-color var(--duration-base) var(--ease-standard);
 }
 
-.benefit-item:hover {
+.benefit-item:hover,
+.benefit-item.is-active {
   transform: translateY(-8px);
   border-top-color: var(--color-brass);
 }

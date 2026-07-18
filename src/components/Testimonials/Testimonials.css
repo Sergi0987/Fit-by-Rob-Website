@@ -39,7 +39,8 @@
     box-shadow var(--duration-base) var(--ease-standard);
 }
 
-.testimonial-card:hover {
+.testimonial-card:hover,
+.testimonial-card.is-active {
   transform: translateY(-10px) scale(1.02);
   box-shadow: var(--shadow-card-hover);
 }
@@ -140,7 +141,8 @@
     box-shadow var(--duration-base) var(--ease-standard);
 }
 
-.transformation-card:hover {
+.transformation-card:hover,
+.transformation-card.is-active {
   transform: translateY(-10px) scale(1.02);
   box-shadow: var(--shadow-card-hover);
 }
