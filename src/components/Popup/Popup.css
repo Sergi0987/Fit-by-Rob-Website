@@ -1,0 +1,90 @@
+.popup-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-md);
+  background: rgba(15, 17, 20, 0.72);
+  backdrop-filter: blur(4px);
+  animation: popup-fade-in var(--duration-base) var(--ease-standard) both;
+}
+
+.popup-card {
+  position: relative;
+  max-width: 440px;
+  width: 100%;
+  background: var(--color-platinum-raised);
+  color: var(--color-text-on-light);
+  border-radius: var(--radius-lg);
+  padding: var(--space-xl) var(--space-lg) var(--space-lg);
+  box-shadow: var(--shadow-card-hover);
+  animation: popup-rise var(--duration-base) var(--ease-standard) both;
+}
+
+.popup-close {
+  position: absolute;
+  top: var(--space-sm);
+  right: var(--space-sm);
+  width: 32px;
+  height: 32px;
+  border: none;
+  background: transparent;
+  color: var(--color-text-on-light-muted);
+  font-size: 1.5rem;
+  line-height: 1;
+  cursor: pointer;
+  transition: color var(--duration-fast) var(--ease-standard);
+}
+
+.popup-close:hover {
+  color: var(--color-text-on-light);
+}
+
+.popup-eyebrow {
+  color: var(--color-sapphire-dark);
+  margin-bottom: var(--space-xs);
+}
+
+.popup-heading {
+  font-size: var(--size-display-md);
+  margin-bottom: var(--space-sm);
+}
+
+.popup-message {
+  color: var(--color-text-on-light-muted);
+  font-size: var(--size-body-md);
+  margin-bottom: var(--space-md);
+}
+
+.popup-cta {
+  margin-top: var(--space-xs);
+}
+
+@keyframes popup-fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes popup-rise {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .popup-overlay,
+  .popup-card {
+    animation: none;
+  }
+}

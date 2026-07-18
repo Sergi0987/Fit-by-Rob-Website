@@ -1,4 +1,5 @@
 import { testimonials, transformations } from "../../data/content";
+import { publicUrl } from "../../utils/publicUrl";
 import PlaceholderImage from "../shared/PlaceholderImage";
 import "./Testimonials.css";
 
@@ -11,6 +12,27 @@ function Stars({ rating }) {
         </span>
       ))}
     </div>
+  );
+}
+
+// Renders a real uploaded photo once Rob adds one via the CMS, and falls
+// back to the placeholder graphic otherwise.
+function Photo({ src, alt, label, aspect, className }) {
+  if (!src) {
+    return <PlaceholderImage label={label} aspect={aspect} className={className} />;
+  }
+  return (
+    <img
+      src={publicUrl(src)}
+      alt={alt}
+      className={className}
+      style={{
+        aspectRatio: aspect,
+        objectFit: "cover",
+        padding: 0,
+        borderRadius: "var(--radius-sm)",
+      }}
+    />
   );
 }
 
@@ -31,9 +53,13 @@ export default function Testimonials() {
           <ul className="transformations__grid">
             {transformations.items.map((item, index) => (
               <li className="transformation-card" key={index}>
-                <span className="testimonial-card__flag">Placeholder</span>
+                {!item.beforePhoto && !item.afterPhoto && (
+                  <span className="testimonial-card__flag">Placeholder</span>
+                )}
                 <div className="transformation-card__photos">
-                  <PlaceholderImage
+                  <Photo
+                    src={item.beforePhoto}
+                    alt={`${item.name} before`}
                     label="Before"
                     aspect="3 / 4"
                     className="transformation-card__photo"
@@ -41,7 +67,9 @@ export default function Testimonials() {
                   <span className="transformation-card__arrow" aria-hidden="true">
                     →
                   </span>
-                  <PlaceholderImage
+                  <Photo
+                    src={item.afterPhoto}
+                    alt={`${item.name} after`}
                     label="After"
                     aspect="3 / 4"
                     className="transformation-card__photo"
@@ -56,8 +84,10 @@ export default function Testimonials() {
         <ul className="testimonials__grid">
           {testimonials.items.map((item, index) => (
             <li className="testimonial-card" key={index}>
-              <span className="testimonial-card__flag">Placeholder</span>
-              <PlaceholderImage
+              {!item.photo && <span className="testimonial-card__flag">Placeholder</span>}
+              <Photo
+                src={item.photo}
+                alt={`${item.name}`}
                 label="Photo"
                 aspect="1 / 1"
                 className="testimonial-card__avatar"

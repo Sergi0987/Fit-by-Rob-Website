@@ -11,8 +11,8 @@ export default function Services() {
         </div>
 
         <ul className="services__grid">
-          {services.map((service) => (
-            <li className="service-card" key={service.id}>
+          {services.map((service, index) => (
+            <li className="service-card" key={`${service.title}-${index}`}>
               <span className="service-card__label">{service.label}</span>
               <h3 className="service-card__title">{service.title}</h3>
               <p className="service-card__description">{service.description}</p>

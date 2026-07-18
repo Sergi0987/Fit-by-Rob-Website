@@ -1,10 +1,12 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 
-// Base path is only needed for the GitHub Pages preview build, where the
-// site is served from /Fit-by-Rob-Website/ instead of the domain root.
+// `npm run build` (used for Netlify, which serves from the domain root)
+// always uses base '/'. The GitHub Pages preview build is served from
+// /Fit-by-Rob-Website/ instead, so it uses `npm run build:ghpages`
+// (--mode ghpages) to opt into that base path specifically.
 // https://vite.dev/config/
-export default defineConfig(({ command }) => ({
+export default defineConfig(({ mode }) => ({
   plugins: [react()],
-  base: command === 'build' ? '/Fit-by-Rob-Website/' : '/',
+  base: mode === 'ghpages' ? '/Fit-by-Rob-Website/' : '/',
 }))

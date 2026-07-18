@@ -1,0 +1,30 @@
+{
+  "heading": "Results & Testimonials",
+  "subheading": "Placeholder testimonials shown below until real client testimonials are provided.",
+  "items": [
+    {
+      "rating": 5,
+      "quote": "Placeholder testimonial text. Replace with a real quote from a client once available.",
+      "name": "First Name",
+      "age": "Age Placeholder",
+      "detail": "Training focus placeholder (e.g. strength training, 6 months)",
+      "photo": ""
+    },
+    {
+      "rating": 5,
+      "quote": "Placeholder testimonial text. Replace with a real quote from a client once available.",
+      "name": "First Name",
+      "age": "Age Placeholder",
+      "detail": "Training focus placeholder (e.g. endurance coaching, 3 months)",
+      "photo": ""
+    },
+    {
+      "rating": 5,
+      "quote": "Placeholder testimonial text. Replace with a real quote from a client once available.",
+      "name": "First Name",
+      "age": "Age Placeholder",
+      "detail": "Training focus placeholder (e.g. online coaching, 1 year)",
+      "photo": ""
+    }
+  ]
+}

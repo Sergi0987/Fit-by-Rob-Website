@@ -1,0 +1,15 @@
+{
+  "heading": "About Rob",
+  "bio": [
+    "I know starting in the gym can be intimidating. Whether your goal is to lose weight, build muscle, improve endurance, or simply feel healthier, I'll meet you where you are. Together we'll build a plan that's realistic, sustainable, and designed around your lifestyle — not someone else's.",
+    "Every program starts with where you are today: your goals, your schedule, your experience level, and anything that's held you back before. From there, we'll build something that adjusts as you progress, with an emphasis on proper technique, steady gains, and habits that actually stick."
+  ],
+  "focusAreas": [
+    { "label": "Weight training", "detail": "Progressive programming for strength gains" },
+    { "label": "Endurance", "detail": "Conditioning built to your current fitness level" },
+    { "label": "Nutrition", "detail": "Practical guidance, not extreme restriction" },
+    { "label": "Personalization", "detail": "Plans adjusted to your goals as you progress" }
+  ],
+  "image": "uploads/rob-about.jpg",
+  "imageAlt": "Rob resting between sets in the gym"
+}

@@ -12,19 +12,27 @@ A one-page, responsive website for Rob's personal training business. Built with 
 
 ```
 src/
-  assets/images/       Photos and logo
+  assets/images/       Logo (nav/footer) — not CMS-managed
   components/
     Navbar/            Sticky nav + mobile menu
+    Popup/              Optional announcement popup (CMS-managed)
     Hero/               Hero section with headline and CTA
+    Stats/              Stats bar under the hero
     About/              Rob's bio and focus areas
     Services/           Service cards
     Benefits/           "Why Train With Rob" section
-    Testimonials/       Client results / testimonials
+    Testimonials/       Client results, testimonials, transformations
     ContactForm/         Inquiry form with validation
     Footer/              Footer with links and contact info
     shared/              Reusable pieces (e.g. PlaceholderImage)
   data/
-    content.js          <-- Central place to edit ALL site text and content
+    content.js          Re-exports the JSON files below — components
+                         import from here and never touch the JSON directly
+    content/*.json       <-- One file per section. Edit these directly, or
+                         through the CMS at /admin (see below)
+  utils/
+    publicUrl.js         Resolves image paths against the app's base path
+    scrollHighlight.js    Touch-device "centered card" highlight
   styles/
     tokens.css          Design tokens (colors, type, spacing)
     global.css          Base styles, resets, buttons
@@ -33,24 +41,36 @@ src/
 index.html              Page title, meta description, Open Graph tags
 public/
   favicon.png           Site favicon (from the logo)
+  uploads/               Hero/about photos + anything uploaded via the CMS
+  admin/                 Decap CMS admin panel (config.yml + index.html)
 ```
 
 ### Updating content
 
-Almost everything on the page — Rob's bio, services, testimonials, contact
-details, social links, nav labels — lives in **`src/data/content.js`**.
-Edit that one file to update copy without touching any component code.
+All section content — Rob's bio, services, testimonials, contact details,
+social links, the popup announcement — lives in JSON files under
+**`src/data/content/`** (one file per section). `src/data/content.js`
+imports and re-exports them, so components never change.
 
-Anything still marked with a comment like `// Replace with client-provided
-information` is a placeholder and should be swapped out once the real
+You can either edit those JSON files directly in code, or use the CMS at
+**`/admin`** (see "Content management" below) — same underlying files,
+just a form-based UI on top so Rob doesn't need to touch code.
+
+Anything still marked `"Placeholder..."` or with a comment like `Replace
+with client-provided information` should be swapped out once the real
 information is available (e.g. real testimonials, confirmed email/phone,
 confirmed social links, confirmation on whether online coaching is offered).
 
 ### Updating images
 
-Photos live in `src/assets/images/`. To swap a photo, replace the file (or
-add a new one) and update the `import` in the relevant component
-(`Hero.jsx`, `About.jsx`, `Navbar.jsx`, `Footer.jsx`).
+The nav/footer logo lives in `src/assets/images/` and is bundled normally
+(swap the file and update the `import` in `Navbar.jsx`/`Footer.jsx`).
+
+Hero/about photos, and any testimonial or before/after photos, live in
+**`public/uploads/`** and are referenced by path in the JSON content files
+(e.g. `"image": "uploads/rob-hero.jpg"`) — this is what lets the CMS
+upload new photos without a code change. Components read these through
+`publicUrl()` so the path resolves correctly on any host.
 
 ## Getting started
 
@@ -75,6 +95,75 @@ Output goes to the `dist/` folder. Preview the production build locally with:
 ```bash
 npm run preview
 ```
+
+There are two build scripts — use the right one for the target host:
+
+- **`npm run build`** — base path `/`. Use this for Netlify (or any host
+  serving from a domain root).
+- **`npm run build:ghpages`** — base path `/Fit-by-Rob-Website/`. Only
+  for the GitHub Pages client-preview deploy, which is served from that
+  subpath. Don't use this one for Netlify — it will break every asset URL.
+
+## Content management (Decap CMS)
+
+Rob can edit the site himself at **`/admin`** without touching code, using
+[Decap CMS](https://decapcms.org) (the actively-maintained successor to
+Netlify CMS). It's a static admin page (`public/admin/index.html` +
+`config.yml`) — no server of ours to run or maintain. Edits save as real
+commits to this repo's `main` branch, which triggers a normal Netlify
+rebuild, so there's a full history and every change is revertible with git.
+
+**How access is secured:** there's no separate password to manage. Logging
+in requires a real GitHub account, and saving changes requires that
+account to be a **collaborator on this repo**
+(`Settings → Collaborators` on GitHub). Only add Rob's account (and
+whoever else should be able to edit). Anyone else hitting `/admin` sees a
+login screen and can't get past it — this is standard, and meaningfully
+more secure than a password baked into a static site's frontend code ever
+could be.
+
+**One-time setup once the site is live on Netlify:**
+
+1. Invite Rob as a collaborator on the `Sergi0987/Fit-by-Rob-Website`
+   GitHub repo (or give him his own account if he doesn't have one).
+2. That's it — the CMS backend (`base_url: https://api.netlify.com` in
+   `config.yml`) uses Netlify's built-in OAuth relay for git-based CMS
+   logins. It only works once the admin page is served from an actual
+   Netlify-hosted domain (not from GitHub Pages) — Netlify validates the
+   request comes from one of its own sites. No Netlify Identity, no extra
+   OAuth app to register.
+3. Rob visits `https://<your-netlify-domain>/admin`, clicks **Login**,
+   authorizes with GitHub, and edits.
+
+**What's editable:** the popup announcement, hero copy + photo, stats bar,
+about bio + photo, services, benefits, testimonials (+ optional real
+photos), before/after transformations (+ optional real photos), contact
+details, and footer/social links. Nav labels and the contact form's
+dropdown option lists are intentionally left out of the CMS since editing
+those needs matching changes elsewhere in the app.
+
+**Testing locally without GitHub auth:**
+
+```bash
+npm run dev          # in one terminal
+npm run cms:local    # in another
+```
+
+Then visit `http://localhost:5173/admin/index.html` directly (note: on
+Vite's dev server you need the explicit `index.html` — the bare `/admin/`
+path only resolves automatically in a real production build/host). Decap
+CMS detects `localhost` and offers a local-backend login that reads/writes
+your working directory directly, no GitHub account needed for testing.
+
+## Popup announcements
+
+Toggle **"Show popup on the site"** in the CMS (or `enabled` in
+`src/data/content/announcement.json`) to show a dismissible popup with a
+heading, message, and optional button — for specials, events, or seasonal
+offers. It appears once per visitor per announcement (tracked in
+`localStorage`); changing the heading or message counts as a new
+announcement and will show again even to visitors who dismissed a
+previous one.
 
 ## Setting up the contact form
 

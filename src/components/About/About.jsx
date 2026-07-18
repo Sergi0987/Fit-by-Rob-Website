@@ -1,5 +1,5 @@
 import { about } from "../../data/content";
-import aboutImage from "../../assets/images/rob-about.jpg";
+import { publicUrl } from "../../utils/publicUrl";
 import "./About.css";
 
 export default function About() {
@@ -10,7 +10,7 @@ export default function About() {
           <div className="about__image-frame">
             <img
               className="about__image"
-              src={aboutImage}
+              src={publicUrl(about.image)}
               alt={about.imageAlt}
               width="1000"
               height="1000"

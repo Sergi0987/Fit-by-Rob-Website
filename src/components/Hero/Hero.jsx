@@ -1,5 +1,5 @@
 import { hero, kahunas } from "../../data/content";
-import heroImage from "../../assets/images/rob-hero.jpg";
+import { publicUrl } from "../../utils/publicUrl";
 import "./Hero.css";
 
 // Signature element: a pulse trace that resolves into an upward-trending
@@ -52,7 +52,7 @@ export default function Hero() {
           <div className="hero__image-frame">
             <img
               className="hero__image"
-              src={heroImage}
+              src={publicUrl(hero.image)}
               alt={hero.imageAlt}
               width="1200"
               height="1500"

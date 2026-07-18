@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { initScrollHighlight } from "./utils/scrollHighlight";
 import Navbar from "./components/Navbar/Navbar";
+import Popup from "./components/Popup/Popup";
 import Hero from "./components/Hero/Hero";
 import Stats from "./components/Stats/Stats";
 import About from "./components/About/About";
@@ -45,6 +46,7 @@ export default function App() {
         Skip to main content
       </a>
       <Navbar />
+      <Popup />
       <main>
         <Hero />
         <Stats />

@@ -1,0 +1,34 @@
+{
+  "items": [
+    {
+      "label": "01",
+      "title": "Personal Training",
+      "description": "One-on-one coaching built around your goals, current fitness level, and schedule."
+    },
+    {
+      "label": "02",
+      "title": "Strength & Resistance Training",
+      "description": "Progressive programming to build muscle, improve movement quality, and get stronger safely."
+    },
+    {
+      "label": "03",
+      "title": "Endurance & Conditioning",
+      "description": "Cardiovascular and conditioning work designed to improve stamina at a sustainable pace."
+    },
+    {
+      "label": "04",
+      "title": "Nutrition Guidance",
+      "description": "Straightforward, practical nutrition support that fits your goals and everyday routine."
+    },
+    {
+      "label": "05",
+      "title": "Customized Workout Programs",
+      "description": "A training plan built specifically for you, adjusted as your goals and progress change."
+    },
+    {
+      "label": "06",
+      "title": "Online Coaching",
+      "description": "Remote coaching option for clients who want expert guidance outside the gym. Details to be confirmed."
+    }
+  ]
+}
