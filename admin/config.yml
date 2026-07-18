@@ -1,0 +1,151 @@
+backend:
+  name: github
+  repo: Sergi0987/Fit-by-Rob-Website
+  branch: main
+  base_url: https://api.netlify.com
+  auth_endpoint: auth
+
+# Lets you run `npm run cms:local` alongside `npm run dev` to edit content
+# against your local files instead of GitHub while working on the site.
+local_backend: true
+
+media_folder: "public/uploads"
+public_folder: "/uploads"
+
+collections:
+  - name: "site"
+    label: "Website Content"
+    files:
+      - name: "announcement"
+        label: "Popup Announcement"
+        description: "Shown as a popup to visitors when they load the site."
+        file: "src/data/content/announcement.json"
+        fields:
+          - { label: "Show popup on the site", name: "enabled", widget: "boolean", default: false }
+          - { label: "Heading", name: "heading", widget: "string" }
+          - { label: "Message", name: "message", widget: "text" }
+          - { label: "Button label", name: "ctaLabel", widget: "string", required: false }
+          - { label: "Button link", name: "ctaHref", widget: "string", required: false }
+
+      - name: "hero"
+        label: "Hero (top of page)"
+        file: "src/data/content/hero.json"
+        fields:
+          - { label: "Headline", name: "headline", widget: "string" }
+          - { label: "Subheadline", name: "subheadline", widget: "text" }
+          - { label: "Button label", name: "ctaLabel", widget: "string" }
+          - { label: "Button target (leave as #contact)", name: "ctaTarget", widget: "string" }
+          - { label: "Photo", name: "image", widget: "image" }
+          - { label: "Photo alt text (for screen readers)", name: "imageAlt", widget: "string" }
+
+      - name: "kahunas"
+        label: "Kahunas Booking Button"
+        file: "src/data/content/kahunas.json"
+        fields:
+          - { label: "Button label", name: "label", widget: "string" }
+          - { label: "Booking URL", name: "href", widget: "string" }
+
+      - name: "stats"
+        label: "Stats Bar"
+        file: "src/data/content/stats.json"
+        fields:
+          - name: "items"
+            label: "Stats"
+            widget: "list"
+            fields:
+              - { label: "Value", name: "value", widget: "string" }
+              - { label: "Label", name: "label", widget: "string" }
+
+      - name: "about"
+        label: "About Rob"
+        file: "src/data/content/about.json"
+        fields:
+          - { label: "Heading", name: "heading", widget: "string" }
+          - { label: "Photo", name: "image", widget: "image" }
+          - { label: "Photo alt text (for screen readers)", name: "imageAlt", widget: "string" }
+          - name: "bio"
+            label: "Bio paragraphs"
+            widget: "list"
+            allow_add: true
+          - name: "focusAreas"
+            label: "Focus areas"
+            widget: "list"
+            fields:
+              - { label: "Label", name: "label", widget: "string" }
+              - { label: "Detail", name: "detail", widget: "string" }
+
+      - name: "services"
+        label: "Services"
+        file: "src/data/content/services.json"
+        fields:
+          - name: "items"
+            label: "Services"
+            widget: "list"
+            fields:
+              - { label: "Number label (e.g. 01)", name: "label", widget: "string" }
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Description", name: "description", widget: "text" }
+
+      - name: "benefits"
+        label: "Why Train With Rob"
+        file: "src/data/content/benefits.json"
+        fields:
+          - { label: "Heading", name: "heading", widget: "string" }
+          - name: "items"
+            label: "Benefits"
+            widget: "list"
+            fields:
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Description", name: "description", widget: "text" }
+
+      - name: "testimonials"
+        label: "Testimonials"
+        file: "src/data/content/testimonials.json"
+        fields:
+          - { label: "Heading", name: "heading", widget: "string" }
+          - { label: "Subheading", name: "subheading", widget: "text" }
+          - name: "items"
+            label: "Testimonials"
+            widget: "list"
+            fields:
+              - { label: "Rating", name: "rating", widget: "number", min: 1, max: 5, default: 5 }
+              - { label: "Quote", name: "quote", widget: "text" }
+              - { label: "First name", name: "name", widget: "string" }
+              - { label: "Age", name: "age", widget: "string" }
+              - { label: "Training focus / detail", name: "detail", widget: "string" }
+              - { label: "Photo", name: "photo", widget: "image", required: false }
+
+      - name: "transformations"
+        label: "Real Transformations"
+        file: "src/data/content/transformations.json"
+        fields:
+          - { label: "Heading", name: "heading", widget: "string" }
+          - { label: "Subheading", name: "subheading", widget: "text" }
+          - name: "items"
+            label: "Before / after pairs"
+            widget: "list"
+            fields:
+              - { label: "Client first name", name: "name", widget: "string" }
+              - { label: "Before photo", name: "beforePhoto", widget: "image", required: false }
+              - { label: "After photo", name: "afterPhoto", widget: "image", required: false }
+
+      - name: "contact"
+        label: "Contact Section"
+        file: "src/data/content/contact.json"
+        fields:
+          - { label: "Heading", name: "heading", widget: "string" }
+          - { label: "Subheading", name: "subheading", widget: "text" }
+          - { label: "Email", name: "email", widget: "string" }
+          - { label: "Phone", name: "phone", widget: "string" }
+
+      - name: "footer"
+        label: "Footer"
+        file: "src/data/content/footer.json"
+        fields:
+          - { label: "Business name", name: "businessName", widget: "string" }
+          - name: "social"
+            label: "Social links"
+            widget: "list"
+            fields:
+              - { label: "Platform", name: "label", widget: "string" }
+              - { label: "URL", name: "href", widget: "string" }
