@@ -1,0 +1,29 @@
+.placeholder-image {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-sm);
+  width: 100%;
+  background: linear-gradient(155deg, var(--color-ink-raised), var(--color-ink));
+  border: 1px solid var(--color-border-on-dark);
+  border-radius: var(--radius-md);
+  color: var(--color-text-on-dark-muted);
+  text-align: center;
+  padding: var(--space-md);
+}
+
+.placeholder-image__icon {
+  width: 48px;
+  height: 48px;
+  color: var(--color-sapphire);
+  opacity: 0.9;
+}
+
+.placeholder-image__label {
+  font-family: var(--font-mono);
+  font-size: var(--size-body-sm);
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+  max-width: 20ch;
+}

@@ -1,0 +1,184 @@
+.testimonials {
+  background: var(--color-platinum);
+}
+
+.testimonials__header {
+  max-width: 56ch;
+  margin-bottom: var(--space-xl);
+}
+
+.testimonials__eyebrow {
+  color: var(--color-sapphire-dark);
+  margin-bottom: var(--space-xs);
+}
+
+.testimonials__heading {
+  font-size: var(--size-display-lg);
+  margin-bottom: var(--space-sm);
+}
+
+.testimonials__subheading {
+  color: var(--color-text-on-light-muted);
+  font-size: var(--size-body-md);
+}
+
+.testimonials__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-md);
+}
+
+.testimonial-card {
+  position: relative;
+  background: var(--color-platinum-raised);
+  border: 1px solid var(--color-border-on-light);
+  border-radius: var(--radius-md);
+  padding: var(--space-lg);
+  box-shadow: var(--shadow-card);
+  transition: transform var(--duration-base) var(--ease-standard),
+    box-shadow var(--duration-base) var(--ease-standard);
+}
+
+.testimonial-card:hover {
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: var(--shadow-card-hover);
+}
+
+.testimonial-card__avatar {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  margin-bottom: var(--space-sm);
+  padding: 0;
+}
+
+.testimonial-card__avatar .placeholder-image__icon {
+  width: 24px;
+  height: 24px;
+}
+
+.testimonial-card__avatar .placeholder-image__label {
+  font-size: 0.55rem;
+}
+
+.testimonial-card__stars {
+  color: var(--color-brass);
+  font-size: 1.1rem;
+  letter-spacing: 0.15em;
+  margin-bottom: var(--space-xs);
+}
+
+.testimonial-card__flag {
+  position: absolute;
+  top: var(--space-sm);
+  right: var(--space-sm);
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+  color: var(--color-brass-dark);
+  background: rgba(201, 146, 46, 0.12);
+  padding: 0.2rem 0.5rem;
+  border-radius: var(--radius-sm);
+}
+
+.testimonial-card__quote {
+  font-size: var(--size-body-lg);
+  color: var(--color-text-on-light);
+  margin-block: var(--space-sm) var(--space-md);
+}
+
+.testimonial-card__name {
+  font-weight: 700;
+}
+
+.testimonial-card__detail {
+  font-family: var(--font-mono);
+  font-size: var(--size-body-sm);
+  color: var(--color-text-on-light-muted);
+  margin-top: var(--space-2xs);
+}
+
+@media (max-width: 960px) {
+  .testimonials__grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.transformations {
+  margin-bottom: var(--space-2xl);
+  padding-bottom: var(--space-2xl);
+  border-bottom: 1px solid var(--color-border-on-light);
+}
+
+.transformations__heading {
+  font-size: var(--size-display-md);
+  margin-bottom: var(--space-xs);
+}
+
+.transformations__subheading {
+  color: var(--color-text-on-light-muted);
+  font-size: var(--size-body-md);
+  max-width: 56ch;
+  margin-bottom: var(--space-lg);
+}
+
+.transformations__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-md);
+}
+
+.transformation-card {
+  position: relative;
+  background: var(--color-platinum-raised);
+  border: 1px solid var(--color-border-on-light);
+  border-radius: var(--radius-md);
+  padding: var(--space-md);
+  box-shadow: var(--shadow-card);
+  transition: transform var(--duration-base) var(--ease-standard),
+    box-shadow var(--duration-base) var(--ease-standard);
+}
+
+.transformation-card:hover {
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: var(--shadow-card-hover);
+}
+
+.transformation-card__photos {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+}
+
+.transformation-card__photo {
+  flex: 1;
+  min-width: 0;
+  padding: var(--space-sm);
+}
+
+.transformation-card__photo .placeholder-image__icon {
+  width: 32px;
+  height: 32px;
+}
+
+.transformation-card__arrow {
+  flex-shrink: 0;
+  color: var(--color-sapphire);
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+.transformation-card__name {
+  margin-top: var(--space-sm);
+  font-family: var(--font-mono);
+  font-size: var(--size-body-sm);
+  color: var(--color-text-on-light-muted);
+  text-align: center;
+}
+
+@media (max-width: 720px) {
+  .transformations__grid {
+    grid-template-columns: 1fr;
+  }
+}
