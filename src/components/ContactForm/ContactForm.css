@@ -72,6 +72,12 @@
   gap: var(--space-md);
 }
 
+.contact-form__row--split > div {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2xs);
+}
+
 .contact-form label {
   font-family: var(--font-mono);
   font-size: var(--size-body-sm);
