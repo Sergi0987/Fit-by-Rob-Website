@@ -98,6 +98,20 @@ collections:
               - { label: "Title", name: "title", widget: "string" }
               - { label: "Description", name: "description", widget: "text" }
 
+      - name: "gallery"
+        label: "Session Photo Gallery"
+        description: "Photos of Rob training clients, shown in the Gallery section."
+        file: "src/data/content/gallery.json"
+        fields:
+          - { label: "Heading", name: "heading", widget: "string" }
+          - { label: "Subheading", name: "subheading", widget: "text" }
+          - name: "items"
+            label: "Photos"
+            widget: "list"
+            fields:
+              - { label: "Photo", name: "photo", widget: "image", required: false }
+              - { label: "Caption (one line, optional)", name: "caption", widget: "string", required: false }
+
       - name: "testimonials"
         label: "Testimonials"
         file: "src/data/content/testimonials.json"
