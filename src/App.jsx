@@ -36,7 +36,7 @@ export default function App() {
   // viewport as the user scrolls, since :hover doesn't apply there.
   useEffect(() => {
     return initScrollHighlight(
-      ".service-card, .testimonial-card, .transformation-card, .benefit-item"
+      ".service-card, .testimonial-card, .gallery-card, .benefit-item"
     );
   }, []);
 

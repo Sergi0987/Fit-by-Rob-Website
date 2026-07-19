@@ -13,6 +13,7 @@ import aboutData from "./content/about.json";
 import servicesData from "./content/services.json";
 import benefitsData from "./content/benefits.json";
 import testimonialsData from "./content/testimonials.json";
+import galleryData from "./content/gallery.json";
 import transformationsData from "./content/transformations.json";
 import contactData from "./content/contact.json";
 import footerData from "./content/footer.json";
@@ -26,7 +27,7 @@ export const siteMeta = {
 export const nav = [
   { label: "About", href: "#about" },
   { label: "Services", href: "#services" },
-  { label: "Results", href: "#results" },
+  { label: "Gallery", href: "#results" },
   { label: "Contact", href: "#contact" },
 ];
 
@@ -37,6 +38,7 @@ export const about = aboutData;
 export const services = servicesData.items;
 export const benefits = benefitsData;
 export const testimonials = testimonialsData;
+export const gallery = galleryData;
 export const transformations = transformationsData;
 export const contact = contactData;
 export const footer = footerData;

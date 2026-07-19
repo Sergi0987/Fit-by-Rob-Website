@@ -1,5 +1,5 @@
 // transformations import kept alongside the commented-out section below
-import { testimonials /* , transformations */ } from "../../data/content";
+import { testimonials, gallery /* , transformations */ } from "../../data/content";
 import { publicUrl } from "../../utils/publicUrl";
 import PlaceholderImage from "../shared/PlaceholderImage";
 import "./Testimonials.css";
@@ -42,10 +42,32 @@ export default function Testimonials() {
     <section id="results" className="section testimonials reveal">
       <div className="container">
         <div className="testimonials__header">
-          <p className="eyebrow testimonials__eyebrow">Client Results</p>
-          <h2 className="testimonials__heading">{testimonials.heading}</h2>
-          <p className="testimonials__subheading">{testimonials.subheading}</p>
+          <p className="eyebrow testimonials__eyebrow">Training In Action</p>
+          <h2 className="testimonials__heading">{gallery.heading}</h2>
+          <p className="testimonials__subheading">{gallery.subheading}</p>
         </div>
+
+        <ul className="gallery__grid">
+          {gallery.items.map((item, index) => (
+            <li className="gallery-card" key={index}>
+              {!item.photo && <span className="testimonial-card__flag">Placeholder</span>}
+              <figure className="gallery-card__figure">
+                <div className="gallery-card__frame">
+                  <Photo
+                    src={item.photo}
+                    alt={item.caption || "Rob training a client"}
+                    label="Session Photo"
+                    aspect="4 / 5"
+                    className="gallery-card__photo"
+                  />
+                </div>
+                {item.caption && (
+                  <figcaption className="gallery-card__caption">{item.caption}</figcaption>
+                )}
+              </figure>
+            </li>
+          ))}
+        </ul>
 
         {/* Before/After transformations section removed at client's request.
             To restore it: uncomment this block, re-enable the `transformations`
@@ -86,6 +108,11 @@ export default function Testimonials() {
           </ul>
         </div>
         */}
+
+        <div className="testimonials__sub">
+          <h3 className="testimonials__sub-heading">{testimonials.heading}</h3>
+          <p className="testimonials__sub-subheading">{testimonials.subheading}</p>
+        </div>
 
         <ul className="testimonials__grid">
           {testimonials.items.map((item, index) => (

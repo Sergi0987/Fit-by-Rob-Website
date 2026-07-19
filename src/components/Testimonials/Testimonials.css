@@ -22,6 +22,79 @@
   font-size: var(--size-body-md);
 }
 
+/* ---- Session photo gallery ---- */
+
+.gallery__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-md);
+  margin-bottom: var(--space-2xl);
+  padding-bottom: var(--space-2xl);
+  border-bottom: 1px solid var(--color-border-on-light);
+}
+
+.gallery-card {
+  position: relative;
+  background: var(--color-platinum-raised);
+  border: 1px solid var(--color-border-on-light);
+  border-radius: var(--radius-md);
+  padding: var(--space-sm);
+  box-shadow: var(--shadow-card);
+  transition: transform var(--duration-base) var(--ease-standard),
+    box-shadow var(--duration-base) var(--ease-standard);
+}
+
+.gallery-card:hover,
+.gallery-card.is-active {
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: var(--shadow-card-hover);
+}
+
+.gallery-card__figure {
+  margin: 0;
+}
+
+.gallery-card__frame {
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+}
+
+.gallery-card__photo {
+  display: block;
+  width: 100%;
+  transition: transform var(--duration-slow) var(--ease-standard);
+}
+
+.gallery-card:hover .gallery-card__photo,
+.gallery-card.is-active .gallery-card__photo {
+  transform: scale(1.06);
+}
+
+.gallery-card__caption {
+  margin-top: var(--space-sm);
+  font-family: var(--font-mono);
+  font-size: var(--size-body-sm);
+  color: var(--color-text-on-light-muted);
+  text-align: center;
+}
+
+/* ---- Testimonials sub-section ---- */
+
+.testimonials__sub {
+  max-width: 56ch;
+  margin-bottom: var(--space-lg);
+}
+
+.testimonials__sub-heading {
+  font-size: var(--size-display-md);
+  margin-bottom: var(--space-xs);
+}
+
+.testimonials__sub-subheading {
+  color: var(--color-text-on-light-muted);
+  font-size: var(--size-body-md);
+}
+
 .testimonials__grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -102,6 +175,16 @@
 
 @media (max-width: 960px) {
   .testimonials__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .gallery__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 540px) {
+  .gallery__grid {
     grid-template-columns: 1fr;
   }
 }
