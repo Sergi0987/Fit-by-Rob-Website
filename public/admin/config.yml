@@ -115,19 +115,22 @@ collections:
               - { label: "Training focus / detail", name: "detail", widget: "string" }
               - { label: "Photo", name: "photo", widget: "image", required: false }
 
-      - name: "transformations"
-        label: "Real Transformations"
-        file: "src/data/content/transformations.json"
-        fields:
-          - { label: "Heading", name: "heading", widget: "string" }
-          - { label: "Subheading", name: "subheading", widget: "text" }
-          - name: "items"
-            label: "Before / after pairs"
-            widget: "list"
-            fields:
-              - { label: "Client first name", name: "name", widget: "string" }
-              - { label: "Before photo", name: "beforePhoto", widget: "image", required: false }
-              - { label: "After photo", name: "afterPhoto", widget: "image", required: false }
+      # Before/After section removed from the site at client's request.
+      # Restore by uncommenting this block and the section in
+      # src/components/Testimonials/Testimonials.jsx.
+      # - name: "transformations"
+      #   label: "Real Transformations"
+      #   file: "src/data/content/transformations.json"
+      #   fields:
+      #     - { label: "Heading", name: "heading", widget: "string" }
+      #     - { label: "Subheading", name: "subheading", widget: "text" }
+      #     - name: "items"
+      #       label: "Before / after pairs"
+      #       widget: "list"
+      #       fields:
+      #         - { label: "Client first name", name: "name", widget: "string" }
+      #         - { label: "Before photo", name: "beforePhoto", widget: "image", required: false }
+      #         - { label: "After photo", name: "afterPhoto", widget: "image", required: false }
 
       - name: "contact"
         label: "Contact Section"

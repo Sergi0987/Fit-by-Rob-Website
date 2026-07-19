@@ -1,4 +1,5 @@
-import { testimonials, transformations } from "../../data/content";
+// transformations import kept alongside the commented-out section below
+import { testimonials /* , transformations */ } from "../../data/content";
 import { publicUrl } from "../../utils/publicUrl";
 import PlaceholderImage from "../shared/PlaceholderImage";
 import "./Testimonials.css";
@@ -46,6 +47,10 @@ export default function Testimonials() {
           <p className="testimonials__subheading">{testimonials.subheading}</p>
         </div>
 
+        {/* Before/After transformations section removed at client's request.
+            To restore it: uncomment this block, re-enable the `transformations`
+            import above, and re-enable its entry in public/admin/config.yml.
+
         <div className="transformations reveal">
           <h3 className="transformations__heading">{transformations.heading}</h3>
           <p className="transformations__subheading">{transformations.subheading}</p>
@@ -80,6 +85,7 @@ export default function Testimonials() {
             ))}
           </ul>
         </div>
+        */}
 
         <ul className="testimonials__grid">
           {testimonials.items.map((item, index) => (

@@ -56,7 +56,7 @@ export default function Hero() {
               alt={hero.imageAlt}
               width="1200"
               height="1500"
-              fetchpriority="high"
+              fetchPriority="high"
             />
           </div>
         </div>
