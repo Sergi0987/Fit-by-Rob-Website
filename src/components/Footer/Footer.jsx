@@ -1,5 +1,5 @@
 import { nav, footer, contact, kahunas } from "../../data/content";
-import logo from "../../assets/images/rr-logo.jpg";
+import logo from "../../assets/images/rr-logo.png";
 import "./Footer.css";
 
 export default function Footer() {
@@ -9,7 +9,7 @@ export default function Footer() {
     <footer className="site-footer">
       <div className="container site-footer__inner">
         <div className="site-footer__brand">
-          <img src={logo} alt="" className="site-footer__logo" width="1290" height="976" />
+          <img src={logo} alt="" className="site-footer__logo" width="400" height="257" />
           <div>
             <p className="site-footer__name">{footer.businessName}</p>
             <p className="site-footer__tagline">Strength. Endurance. Results.</p>

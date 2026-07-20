@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { nav, siteMeta } from "../../data/content";
-import logo from "../../assets/images/rr-logo.jpg";
+import logo from "../../assets/images/rr-logo.png";
 import "./Navbar.css";
 
 export default function Navbar() {
@@ -21,7 +21,7 @@ export default function Navbar() {
     <header className={`navbar ${isScrolled ? "navbar--scrolled" : ""}`}>
       <div className="navbar__inner container">
         <a href="#top" className="navbar__brand">
-          <img src={logo} alt="" className="navbar__logo" width="1290" height="976" />
+          <img src={logo} alt="" className="navbar__logo" width="400" height="257" />
           <span className="visually-hidden">{siteMeta.businessName} — Home</span>
         </a>
 
