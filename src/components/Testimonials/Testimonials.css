@@ -28,9 +28,11 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: var(--space-md);
-  margin-bottom: var(--space-2xl);
+  /* Divider below the gallery is only needed when the testimonials section
+     is visible. Restore these three properties alongside that section. */
+  /* margin-bottom: var(--space-2xl);
   padding-bottom: var(--space-2xl);
-  border-bottom: 1px solid var(--color-border-on-light);
+  border-bottom: 1px solid var(--color-border-on-light); */
 }
 
 .gallery-card {
