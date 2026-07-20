@@ -18,7 +18,8 @@
 }
 
 .site-footer__logo {
-  border-radius: 50%;
+  height: 64px;
+  width: auto;
   flex-shrink: 0;
 }
 
