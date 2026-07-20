@@ -112,22 +112,25 @@ collections:
               - { label: "Photo", name: "photo", widget: "image", required: false }
               - { label: "Caption (one line, optional)", name: "caption", widget: "string", required: false }
 
-      - name: "testimonials"
-        label: "Testimonials"
-        file: "src/data/content/testimonials.json"
-        fields:
-          - { label: "Heading", name: "heading", widget: "string" }
-          - { label: "Subheading", name: "subheading", widget: "text" }
-          - name: "items"
-            label: "Testimonials"
-            widget: "list"
-            fields:
-              - { label: "Rating", name: "rating", widget: "number", min: 1, max: 5, default: 5 }
-              - { label: "Quote", name: "quote", widget: "text" }
-              - { label: "First name", name: "name", widget: "string" }
-              - { label: "Age", name: "age", widget: "string" }
-              - { label: "Training focus / detail", name: "detail", widget: "string" }
-              - { label: "Photo", name: "photo", widget: "image", required: false }
+      # Testimonials section hidden for now at client's request.
+      # Restore by uncommenting this block and the section in
+      # src/components/Testimonials/Testimonials.jsx.
+      # - name: "testimonials"
+      #   label: "Testimonials"
+      #   file: "src/data/content/testimonials.json"
+      #   fields:
+      #     - { label: "Heading", name: "heading", widget: "string" }
+      #     - { label: "Subheading", name: "subheading", widget: "text" }
+      #     - name: "items"
+      #       label: "Testimonials"
+      #       widget: "list"
+      #       fields:
+      #         - { label: "Rating", name: "rating", widget: "number", min: 1, max: 5, default: 5 }
+      #         - { label: "Quote", name: "quote", widget: "text" }
+      #         - { label: "First name", name: "name", widget: "string" }
+      #         - { label: "Age", name: "age", widget: "string" }
+      #         - { label: "Training focus / detail", name: "detail", widget: "string" }
+      #         - { label: "Photo", name: "photo", widget: "image", required: false }
 
       # Before/After section removed from the site at client's request.
       # Restore by uncommenting this block and the section in
