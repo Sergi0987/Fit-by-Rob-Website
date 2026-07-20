@@ -1,9 +1,12 @@
-// transformations import kept alongside the commented-out section below
-import { testimonials, gallery /* , transformations */ } from "../../data/content";
+// testimonials + transformations imports kept alongside the commented-out
+// sections below (re-enable when those sections come back)
+import { gallery /* , testimonials, transformations */ } from "../../data/content";
 import { publicUrl } from "../../utils/publicUrl";
 import PlaceholderImage from "../shared/PlaceholderImage";
 import "./Testimonials.css";
 
+/* Used only by the commented-out testimonials section below; restore
+   alongside it.
 function Stars({ rating }) {
   return (
     <div className="testimonial-card__stars" aria-label={`${rating} out of 5 stars`}>
@@ -15,6 +18,7 @@ function Stars({ rating }) {
     </div>
   );
 }
+*/
 
 // Renders a real uploaded photo once Rob adds one via the CMS, and falls
 // back to the placeholder graphic otherwise.
@@ -109,6 +113,10 @@ export default function Testimonials() {
         </div>
         */}
 
+        {/* Testimonials section hidden for now at client's request (no real
+            testimonials yet). To restore it: uncomment this block, the Stars
+            component, and re-enable the `testimonials` import above.
+
         <div className="testimonials__sub">
           <h3 className="testimonials__sub-heading">{testimonials.heading}</h3>
           <p className="testimonials__sub-subheading">{testimonials.subheading}</p>
@@ -134,6 +142,7 @@ export default function Testimonials() {
             </li>
           ))}
         </ul>
+        */}
       </div>
     </section>
   );
