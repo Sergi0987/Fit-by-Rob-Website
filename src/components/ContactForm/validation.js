@@ -1,8 +1,6 @@
 // Simple, dependency-free validation helpers for the inquiry form.
 
 const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-// Accepts formats like 555-555-5555, (555) 555 5555, +1 555 555 5555, etc.
-const PHONE_PATTERN = /^[+]?[\d\s().-]{7,20}$/;
 
 export function validateField(name, value) {
   const trimmed = typeof value === "string" ? value.trim() : value;
@@ -18,10 +16,12 @@ export function validateField(name, value) {
       if (!EMAIL_PATTERN.test(trimmed)) return "Enter a valid email address.";
       return "";
 
-    case "phone":
+    case "phone": {
       if (!trimmed) return "Enter your phone number.";
-      if (!PHONE_PATTERN.test(trimmed)) return "Enter a valid phone number.";
+      const digits = String(trimmed).replace(/\D/g, "");
+      if (digits.length !== 10) return "Enter a 10-digit phone number.";
       return "";
+    }
 
     case "fitnessGoal":
       if (!trimmed) return "Select your primary fitness goal.";

@@ -23,6 +23,14 @@ const encode = (data) =>
     .map((key) => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
     .join("&");
 
+// Progressively formats a US phone number as the user types: strips
+// non-digits, caps at 10, and inserts dashes (e.g. "4445556666" -> "444-555-6666").
+function formatPhone(input) {
+  const digits = input.replace(/\D/g, "").slice(0, 10);
+  const parts = [digits.slice(0, 3), digits.slice(3, 6), digits.slice(6, 10)];
+  return parts.filter(Boolean).join("-");
+}
+
 export default function ContactForm() {
   const [values, setValues] = useState(initialValues);
   const [errors, setErrors] = useState({});
@@ -32,9 +40,10 @@ export default function ContactForm() {
 
   const handleChange = (event) => {
     const { name, value } = event.target;
-    setValues((prev) => ({ ...prev, [name]: value }));
+    const nextValue = name === "phone" ? formatPhone(value) : value;
+    setValues((prev) => ({ ...prev, [name]: nextValue }));
     if (touched[name]) {
-      setErrors((prev) => ({ ...prev, [name]: validateField(name, value) }));
+      setErrors((prev) => ({ ...prev, [name]: validateField(name, nextValue) }));
     }
   };
 
@@ -185,7 +194,10 @@ export default function ContactForm() {
                 id="phone"
                 name="phone"
                 type="tel"
+                inputMode="numeric"
                 autoComplete="tel"
+                maxLength={12}
+                placeholder="555-555-5555"
                 value={values.phone}
                 onChange={handleChange}
                 onBlur={handleBlur}
