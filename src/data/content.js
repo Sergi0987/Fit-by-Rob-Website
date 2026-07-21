@@ -24,9 +24,10 @@ export const siteMeta = {
   tagline: "Personal training built around your goals",
 };
 
+// Order mirrors the section order on the page.
 export const nav = [
-  { label: "About", href: "#about" },
   { label: "Services", href: "#services" },
+  { label: "About", href: "#about" },
   { label: "Gallery", href: "#results" },
   { label: "Contact", href: "#contact" },
 ];

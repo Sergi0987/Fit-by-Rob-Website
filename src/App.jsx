@@ -50,8 +50,8 @@ export default function App() {
       <main>
         <Hero />
         <Stats />
-        <About />
         <Services />
+        <About />
         <Benefits />
         <Testimonials />
         <ContactForm />
