@@ -62,11 +62,17 @@ export default function ContactForm() {
     setStatus("submitting");
     setStatusMessage("");
 
+    // Netlify uses a field named "subject" as the notification email's subject
+    // line. Compose a descriptive one so Rob can triage inquiries at a glance.
+    const subject = values.fitnessGoal
+      ? `New inquiry from ${values.fullName} — ${values.fitnessGoal}`
+      : `New inquiry from ${values.fullName}`;
+
     try {
       const response = await fetch("/", {
         method: "POST",
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: encode({ "form-name": FORM_NAME, "bot-field": "", ...values }),
+        body: encode({ "form-name": FORM_NAME, "bot-field": "", subject, ...values }),
       });
 
       if (!response.ok) {
