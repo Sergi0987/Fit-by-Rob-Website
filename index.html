@@ -18,9 +18,8 @@
       property="og:description"
       content="Build strength, endurance, and confidence with personal training built around your goals."
     />
-    <meta property="og:image" content="/favicon.png" />
-    <!-- Replace with client-provided information: final production URL -->
-    <meta property="og:url" content="https://example.com" />
+    <meta property="og:image" content="https://fitbyrobroche.com/favicon.png" />
+    <meta property="og:url" content="https://fitbyrobroche.com" />
 
     <!-- Twitter -->
     <meta name="twitter:card" content="summary" />
@@ -29,9 +28,25 @@
       name="twitter:description"
       content="Build strength, endurance, and confidence with personal training built around your goals."
     />
-    <meta name="twitter:image" content="/favicon.png" />
+    <meta name="twitter:image" content="https://fitbyrobroche.com/favicon.png" />
   </head>
   <body>
+    <!--
+      Netlify Forms detection. Netlify's build bot scans the deployed HTML for
+      a static form to register; the real, interactive form is rendered by
+      React and posts to this "contact" form. Keep the field names in sync
+      with src/components/ContactForm/ContactForm.jsx.
+    -->
+    <form name="contact" data-netlify="true" netlify-honeypot="bot-field" hidden>
+      <input type="text" name="fullName" />
+      <input type="email" name="email" />
+      <input type="tel" name="phone" />
+      <input type="text" name="fitnessGoal" />
+      <input type="text" name="trainingType" />
+      <textarea name="message"></textarea>
+      <input name="bot-field" />
+    </form>
+
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
   </body>

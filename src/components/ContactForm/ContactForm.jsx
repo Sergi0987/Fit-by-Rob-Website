@@ -12,11 +12,16 @@ const initialValues = {
   message: "",
 };
 
-// The form submits to Formspree (https://formspree.io) by default. The
-// endpoint is read from an environment variable so no keys live in source
-// control. See README.md for setup instructions, including alternatives
-// such as Web3Forms or EmailJS.
-const FORM_ENDPOINT = import.meta.env.VITE_FORM_ENDPOINT;
+// The form uses Netlify Forms: submissions are captured by Netlify (see the
+// hidden detection form in index.html) and can be emailed to Rob / viewed in
+// the Netlify dashboard. Netlify Forms only works on the deployed Netlify
+// site, not in local `vite dev`. Submitting posts url-encoded data to "/".
+const FORM_NAME = "contact";
+
+const encode = (data) =>
+  Object.keys(data)
+    .map((key) => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
+    .join("&");
 
 export default function ContactForm() {
   const [values, setValues] = useState(initialValues);
@@ -54,22 +59,14 @@ export default function ContactForm() {
       return;
     }
 
-    if (!FORM_ENDPOINT) {
-      setStatus("error");
-      setStatusMessage(
-        "This form isn't connected to a submission service yet. See README.md to configure VITE_FORM_ENDPOINT."
-      );
-      return;
-    }
-
     setStatus("submitting");
     setStatusMessage("");
 
     try {
-      const response = await fetch(FORM_ENDPOINT, {
+      const response = await fetch("/", {
         method: "POST",
-        headers: { Accept: "application/json", "Content-Type": "application/json" },
-        body: JSON.stringify(values),
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: encode({ "form-name": FORM_NAME, "bot-field": "", ...values }),
       });
 
       if (!response.ok) {
@@ -81,7 +78,7 @@ export default function ContactForm() {
       setValues(initialValues);
       setTouched({});
       setErrors({});
-    } catch (error) {
+    } catch {
       setStatus("error");
       setStatusMessage(
         "Something went wrong sending your message. Please try again, or email directly below."
@@ -115,7 +112,23 @@ export default function ContactForm() {
           </dl>
         </div>
 
-        <form className="contact-form" noValidate onSubmit={handleSubmit}>
+        <form
+          className="contact-form"
+          name={FORM_NAME}
+          method="POST"
+          data-netlify="true"
+          netlify-honeypot="bot-field"
+          noValidate
+          onSubmit={handleSubmit}
+        >
+          {/* Netlify needs form-name in the POST body; honeypot catches bots */}
+          <input type="hidden" name="form-name" value={FORM_NAME} />
+          <p className="visually-hidden" aria-hidden="true">
+            <label>
+              Don&apos;t fill this out if you&apos;re human: <input name="bot-field" tabIndex={-1} autoComplete="off" />
+            </label>
+          </p>
+
           <div className="contact-form__row">
             <label htmlFor="fullName">Full name</label>
             <input
