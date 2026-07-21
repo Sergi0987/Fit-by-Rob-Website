@@ -155,8 +155,10 @@ collections:
         fields:
           - { label: "Heading", name: "heading", widget: "string" }
           - { label: "Subheading", name: "subheading", widget: "text" }
-          - { label: "Email", name: "email", widget: "string" }
-          - { label: "Phone", name: "phone", widget: "string" }
+          # Kept on file but no longer displayed anywhere on the site, so the
+          # inquiry form stays the single point of contact.
+          - { label: "Email (not shown on site)", name: "email", widget: "string", hint: "Stored for reference only. The site currently sends everyone through the inquiry form." }
+          - { label: "Phone (not shown on site)", name: "phone", widget: "string", hint: "Stored for reference only. The site currently sends everyone through the inquiry form." }
 
       - name: "footer"
         label: "Footer"

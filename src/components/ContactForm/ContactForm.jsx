@@ -114,20 +114,9 @@ export default function ContactForm() {
           <h2 className="contact__heading">{contact.heading}</h2>
           <p className="contact__subheading">{contact.subheading}</p>
 
-          <dl className="contact__details">
-            <div>
-              <dt>Email</dt>
-              <dd>
-                <a href={`mailto:${contact.email}`}>{contact.email}</a>
-              </dd>
-            </div>
-            <div>
-              <dt>Phone</dt>
-              <dd>
-                <a href={`tel:${contact.phone.replace(/[^\d+]/g, "")}`}>{contact.phone}</a>
-              </dd>
-            </div>
-          </dl>
+          {/* Direct email/phone intentionally omitted so the inquiry form is
+              the single intake path. Rob's details still live in
+              contact.json if they ever need to be surfaced again. */}
         </div>
 
         <form
