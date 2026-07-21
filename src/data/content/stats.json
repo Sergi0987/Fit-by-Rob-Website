@@ -1,7 +1,6 @@
 {
   "items": [
-    { "value": "100+", "label": "Clients Trained" },
-    { "value": "5+", "label": "Years Experience" },
+    { "value": "10+", "label": "Years Experience" },
     { "value": "Customized", "label": "Workout Plans" },
     { "value": "Nutrition", "label": "Support Included" }
   ]

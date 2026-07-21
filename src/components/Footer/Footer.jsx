@@ -1,4 +1,4 @@
-import { nav, footer, contact, kahunas } from "../../data/content";
+import { nav, footer, kahunas } from "../../data/content";
 import logo from "../../assets/images/rr-logo.png";
 import "./Footer.css";
 
@@ -26,9 +26,10 @@ export default function Footer() {
           </ul>
         </nav>
 
+        {/* Direct email/phone intentionally omitted here so the footer points
+            visitors to the inquiry form rather than around it. */}
         <div className="site-footer__contact">
-          <a href={`mailto:${contact.email}`}>{contact.email}</a>
-          <a href={`tel:${contact.phone.replace(/[^\d+]/g, "")}`}>{contact.phone}</a>
+          <a href="#contact">Start Training</a>
           <a href={kahunas.href} target="_blank" rel="noreferrer noopener">
             {kahunas.label}
           </a>

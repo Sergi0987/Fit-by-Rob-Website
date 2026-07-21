@@ -1,14 +1,15 @@
 {
   "heading": "About Rob",
   "bio": [
-    "I know starting in the gym can be intimidating. Whether your goal is to lose weight, build muscle, improve endurance, or simply feel healthier, I'll meet you where you are. Together we'll build a plan that's realistic, sustainable, and designed around your lifestyle — not someone else's.",
-    "Every program starts with where you are today: your goals, your schedule, your experience level, and anything that's held you back before. From there, we'll build something that adjusts as you progress, with an emphasis on proper technique, steady gains, and habits that actually stick."
+    "I'm Rob, and you'll find me on the floor at Hardcore Fitness in Winter Garden. I've been coaching since 2015, and I got into it because I kept seeing the same thing: people showing up with real motivation, then drifting away because nobody showed them what to do with it. That's the part I care about fixing.",
+    "Most of the people I work with aren't athletes. They're busy, they've had a rough run with fitness before, or they just don't want to walk in and look lost. My job is to take that off your plate — you show up, I'll handle the plan.",
+    "What I won't do is hand you something you'll quit in three weeks. We'll work with the schedule you actually have and the body you actually have today, and adjust as those change. Progress you keep beats progress you burn out chasing."
   ],
   "focusAreas": [
-    { "label": "Weight training", "detail": "Progressive programming for strength gains" },
-    { "label": "Endurance", "detail": "Conditioning built to your current fitness level" },
-    { "label": "Nutrition", "detail": "Practical guidance, not extreme restriction" },
-    { "label": "Personalization", "detail": "Plans adjusted to your goals as you progress" }
+    { "label": "Clients trained", "detail": "100+ and counting" },
+    { "label": "Coaching since", "detail": "2015" },
+    { "label": "Home gym", "detail": "Hardcore Fitness, Winter Garden" },
+    { "label": "Works with", "detail": "First-timers through experienced lifters" }
   ],
   "image": "uploads/rob-about.jpg",
   "imageAlt": "Rob resting between sets in the gym"
