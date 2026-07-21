@@ -64,8 +64,11 @@ export default function ContactForm() {
 
     // Netlify uses a field named "subject" as the notification email's subject
     // line. Compose a descriptive one so Rob can triage inquiries at a glance.
+    // Keep it ASCII-only — Netlify puts this straight into the email Subject
+    // header without MIME encoding, so non-ASCII (e.g. an em dash) renders as
+    // a broken character. A plain hyphen is safe.
     const subject = values.fitnessGoal
-      ? `New inquiry from ${values.fullName} — ${values.fitnessGoal}`
+      ? `New inquiry from ${values.fullName} - ${values.fitnessGoal}`
       : `New inquiry from ${values.fullName}`;
 
     try {
