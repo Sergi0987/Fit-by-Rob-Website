@@ -29,7 +29,7 @@ export default function Footer() {
         {/* Direct email/phone intentionally omitted here so the footer points
             visitors to the inquiry form rather than around it. */}
         <div className="site-footer__contact">
-          <a href="#contact">Start Training</a>
+          <a href="#contact">Book a Session</a>
           <a href={kahunas.href} target="_blank" rel="noreferrer noopener">
             {kahunas.label}
           </a>
