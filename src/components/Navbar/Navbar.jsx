@@ -22,7 +22,7 @@ export default function Navbar() {
       <div className="navbar__inner container">
         <a href="#top" className="navbar__brand">
           <img src={logo} alt="" className="navbar__logo" width="400" height="257" />
-          <span className="visually-hidden">{siteMeta.businessName} — Home</span>
+          <span className="visually-hidden">{siteMeta.businessName} Home</span>
         </a>
 
         <button
